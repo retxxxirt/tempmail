@@ -1,0 +1,14 @@
+language: python
+python:
+  - '3.8'
+install:
+  - pip install -e .
+script:
+  - python -m unittest discover -s tests
+deploy:
+  provider: pypi
+  user: "__token__"
+  password:
+    secure: "NhDhWOTFBPahzzXgb3LGfyzCgPHD5WSwQ77tAPmxpYpdaZzO1aQzJpM2XozFYIuih9SVzbr8ID1S+nLNqEUPG0C9QGFWnKki5mpgGsUhpIUiJK1eJX6fbH3QaAXtLjz5iOPnvEMJBZbTzfPDN4kTGImycEb/ESaQt1NymH4rUpA3lAOubi781NDVYnBCqfdrGGya/zp0Q7jbsB+AyoSpwkxPDdbnFUq+UeI2vva9xXZFRzDq8pQmYpzt2t1A1TqG+CoPi/qn+lIlrqY9CqCj4czFUya/oNyVl/ZiNCWp88hz9p5BGu/h1VMzGntyLzZFNk5kgMvAVFJkn30UUR5qZOkkTjLDqEUVQfwczBK8+si8WH4tqM7WU+IsjMdFQ/T37P8yt8JloC7M8y64Z7xuJTTIOw5ck45GcblAQ+m9eoCR8wgNj23RJuz1cWOgtrqFVh4rY5SDJ+3xdME+E3at0rIZ9cBnr3QNBHVpg6KDe7GC4N5UIHjgwgO1BWFNTOrOuigNARTiPixiMQqTSWi5QMf/per/5B+V8V5a6fzRdHkssVCJBkBumrJqPmB1Medn8VKC7hykf9hXpHqIeoOi4BVJa7ZPBS30SK5Qsgyahe3UhG5gYk0+FIL+DRoHViJNKnJwS5mWxUMmiUkxL5t9ASCX7T5vIJcWN2O/C8wOQ9E="
+  on:
+    branch: production
