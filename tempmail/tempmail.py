@@ -30,8 +30,8 @@ class Tempmail:
     def email(self, email: str):
         if '@' not in email:
             raise exceptions.InvalidEmail(email)
-        else:
-            username, domain = email.split("@", 1)
+
+        username, domain = email.split("@", 1)
 
         if (domain := f'@{domain}') not in self.domains:
             raise exceptions.InvalidDomain(domain, self.domains)
