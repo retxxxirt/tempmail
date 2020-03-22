@@ -20,7 +20,7 @@ class Tempmail:
         elif username is not None:
             self.email = username + choice(self.domains)
         else:
-            self.email = generate_username()[0] + choice(self.domains)
+            self.email = generate_username()[0].lower() + choice(self.domains)
 
     @property
     def email(self) -> str:
@@ -28,10 +28,16 @@ class Tempmail:
 
     @email.setter
     def email(self, email: str):
-        domain = f'@{email.split("@", 1)[-1]}'
+        if '@' not in email:
+            raise exceptions.InvalidEmail(email)
+        else:
+            username, domain = email.split("@", 1)
 
-        if domain not in self.domains:
+        if (domain := f'@{domain}') not in self.domains:
             raise exceptions.InvalidDomain(domain, self.domains)
+
+        if True in [s.isupper() for s in username]:
+            raise exceptions.InvalidUsername(username)
 
         self._email, self._email_hash = email, md5(email.encode('utf8')).hexdigest()
 

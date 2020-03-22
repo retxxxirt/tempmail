@@ -10,6 +10,16 @@ class ResponseException(TempmailException):
         super().__init__(f'Response error: {error_message}')
 
 
+class InvalidEmail(TempmailException):
+    def __init__(self, email: str):
+        super().__init__(f'Invalid email: {email}.')
+
+
+class InvalidUsername(TempmailException):
+    def __init__(self, username: str):
+        super().__init__(f'Invalid username: {username}. Username must be in lower case.')
+
+
 class InvalidDomain(TempmailException):
     def __init__(self, domain: str, domains: List[str]):
         super().__init__(f'Invalid domain: {domain}. Select one from following: {", ".join(domains)}.')

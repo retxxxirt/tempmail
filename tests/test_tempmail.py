@@ -19,6 +19,8 @@ class TempmailTestCase(TestCase):
         self.assertEqual(username, 'username')
         self.assertIn(f'@{domain}', available_domains)
 
+        self.assertRaises(exceptions.InvalidEmail, Tempmail, email='invalid-email')
+        self.assertRaises(exceptions.InvalidUsername, Tempmail, username='UserName')
         self.assertRaises(exceptions.InvalidDomain, Tempmail, email='username@invalid.domain')
 
     def test__make_request(self):
