@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='tempmail-client',
     packages=['tempmail'],
-    version='0.1.1',
+    version='0.1.2',
     license='MIT',
     description='Client for temp-mail.org',
     author='retxxxirt',
