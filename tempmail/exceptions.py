@@ -30,10 +30,5 @@ class MessageNotFound(TempmailException):
         super().__init__(f'Message with id \'{message_id}\' not found.')
 
 
-class ConditionsEmpty(TempmailException):
-    def __init__(self, *conditions: str):
-        super().__init__(f'Specify at least one condition from following: {", ".join(conditions)}.')
-
-
 class TimeoutException(TempmailException):
     pass

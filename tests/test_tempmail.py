@@ -38,6 +38,3 @@ class TempmailTestCase(TestCase):
 
     def test_get_message(self):
         self.assertRaises(exceptions.MessageNotFound, self.tempmail.get_message, 'invalid-id')
-
-    def test_wait_for(self):
-        self.assertRaises(exceptions.ConditionsEmpty, self.tempmail.wait_for)
