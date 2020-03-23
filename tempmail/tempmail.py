@@ -85,9 +85,6 @@ class Tempmail:
         if text_contains is not None:
             conditions.append(('mail_text', text_contains))
 
-        if len(conditions) == 0:
-            raise exceptions.ConditionsEmpty('sender_contains', 'subject_contains', 'text_contains')
-
         for _ in range(timeout // interval + 1):
             for message in self.get_messages():
                 is_suitable = True
